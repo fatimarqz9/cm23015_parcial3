@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Departamentos;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 
 class DepartamentosController extends Controller
 {
@@ -23,6 +24,7 @@ class DepartamentosController extends Controller
     public function create()
     {
         //
+        return view('departamentos.create');
     }
 
     /**
@@ -31,6 +33,13 @@ class DepartamentosController extends Controller
     public function store(Request $request)
     {
         //
+
+        $departamentos = new Departamentos();
+        $departamentos->nombredepartamento = $request->nombredepartamento;
+        $departamentos->codigodepartamento = $request->codigodepartamento;
+        $departamentos->save();
+
+        return redirect(Route('departamentos.index'));
     }
 
     /**

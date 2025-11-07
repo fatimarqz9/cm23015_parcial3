@@ -9,6 +9,7 @@
 
 @section('content')
 
+<a href="{{Route('departamentos.create')}}">Crear nuevo departamento</a>
 
 <table border="1">
     <thead>
