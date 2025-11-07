@@ -1,6 +1,6 @@
  php artisan migrate 
 
-php artisan make:model Departamentos -mfscr
+php artisan make:model Departamentos -mfs
 php artisan make:model TipoClientes -mfs
 php artisan make:model Clientes -mfs
 
@@ -9,3 +9,5 @@ php artisan db:seed --class=DepartamentosSeeder
 php artisan db:seed --class=TipoClientesSeeder
 php artisan db:seed --class=ClientesSeeder
 
+
+php artisan make:controller DepartamentosController --resource

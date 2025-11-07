@@ -8,5 +8,5 @@
 @endsection
 
 @section('content')
-<a href="#">Ejercicio 3</a>
+<a href="{{ Route('departamentos.index') }}">Ejercicio 3</a>
 @endsection

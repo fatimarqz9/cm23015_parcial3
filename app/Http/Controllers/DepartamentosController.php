@@ -13,6 +13,8 @@ class DepartamentosController extends Controller
     public function index()
     {
         //
+        $departamentos = Departamentos::all();
+        return view('departamentos.index', compact('departamentos'));
     }
 
     /**
@@ -34,7 +36,7 @@ class DepartamentosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Departamentos $departamentos)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +44,7 @@ class DepartamentosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Departamentos $departamentos)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +52,7 @@ class DepartamentosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Departamentos $departamentos)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +60,7 @@ class DepartamentosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Departamentos $departamentos)
+    public function destroy(string $id)
     {
         //
     }
