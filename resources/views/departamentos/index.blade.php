@@ -24,6 +24,13 @@
                 <td>{{$depa->id}}</td>
                 <td>{{$depa->nombredepartamento}}</td>
                 <td>{{$depa->codigodepartamento}}</td>
+                <td><form action="{{Route('departamentos.destroy', $depa->id)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit">Eliminar</button>
+                </form></td>
+                <td><a href="{{Route('departamentos.edit', $depa->id)}}">Editar</a></td>
             </tr>
 
         @endforeach

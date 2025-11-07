@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Departamentos;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Composer;
 
 class DepartamentosController extends Controller
 {
@@ -53,24 +54,37 @@ class DepartamentosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         //
+        $departamentos = Departamentos::find($id);
+       return view('departamentos.edit', compact('departamentos'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,  $id)
     {
         //
+        $departamentos = Departamentos::find($id);
+
+        $departamentos->nombredepartamento = $request->nombredepartamento;
+        $departamentos->codigodepartamento = $request->codigodepartamento;
+        $departamentos->update();
+
+        return redirect(Route('departamentos.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //
+        $departamento = Departamentos::find($id);
+        $departamento->delete();
+
+        return redirect(Route('departamentos.index'));
     }
 }
